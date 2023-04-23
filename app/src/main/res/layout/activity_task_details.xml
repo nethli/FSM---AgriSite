@@ -56,6 +56,7 @@
                     android:autofillHints="No"
                     android:drawablePadding="8dp"
                     android:hint="Landing Page Design"
+                    android:textColorHighlight="@color/light_grey"
                     android:textColorHint="@color/grey"
                     android:padding="8dp" />
             </LinearLayout>
@@ -74,12 +75,14 @@
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/start_date" />
 
-                <EditText
-                    android:id="@+id/et_end_date"
-                    android:layout_width="135dp"
+                <Button
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/start_date"
-                    android:minHeight="48dp" />
+                    android:id="@+id/BtnStartDatePicker"
+                    android:text="JAN 01 2020"
+                    android:textColor="@color/black"
+                    style="?android:spinnerStyle"
+                    android:onClick="openDatePicker"/>
 
                 <ImageView
                     android:layout_width="30dp"
@@ -89,12 +92,15 @@
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/end_date" />
 
-                <EditText
-                    android:id="@+id/et_start_date"
-                    android:layout_width="135dp"
+                <Button
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/end_date"
-                    android:minHeight="48dp" />
+                    android:id="@+id/BtnEndDatePicker"
+                    android:text="JAN 01 2020"
+                    android:textColor="@color/black"
+                    style="?android:spinnerStyle"
+                    android:onClick="openDatePicker"/>
+
             </LinearLayout>
 
             <TextView
@@ -114,6 +120,7 @@
                 android:padding="5dp"
                 android:autofillHints="No"
                 android:hint="Enter your task description..."
+                android:textColorHighlight="@color/light_grey"
                 android:inputType="textMultiLine"
                 android:lines="8"
                 android:gravity="top|left"

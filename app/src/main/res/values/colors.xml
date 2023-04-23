@@ -12,6 +12,7 @@
     <color name ="green_leaves1">#122F2B</color>
     <color name ="green_leaves2">#185437</color>
     <color name="grey">#808080</color>
+    <color name = "light_grey">#8E9C97</color>
     <color name = "foreground_material_dark"></color>
     <color name = "foreground_material_light"></color>
 </resources>

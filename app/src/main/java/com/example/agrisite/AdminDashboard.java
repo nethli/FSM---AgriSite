@@ -1,6 +1,7 @@
 package com.example.agrisite;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ public class AdminDashboard extends AppCompatActivity {
 
     ImageView ImgFO, ImgServiceTask, ImageLocation, Image_Calendar, ImgDataAnalytics, ImgAgriProducts;
 
+    CardView RegisterCard, ServiceCard, LocationCard, SchedulerCard, AnalyticsCard,ProductsCard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class AdminDashboard extends AppCompatActivity {
 
         //setOnClickListener on Image
         ImgFO.setOnClickListener(view -> {
-            Intent i = new Intent(this, FORegistration.class);
+            Intent i = new Intent(this, FieldOfficerRegistration.class);
             startActivity(i);
         });
     }

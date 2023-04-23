@@ -15,15 +15,17 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Calendar;
 
 public class FieldOfficerRegistration extends AppCompatActivity {
 
+    TextView InstructionNIC, InstructionBDate;
     EditText EditTxtFName, EditTxtLName, EditTxtEmail, EditTxtPassword, EditTxtCnfPassword;
     RadioButton radio_male, radio_female;
     //CheckBox checkbox_correct;
-    Spinner spinner;
+    Spinner spinner1;
     DatePickerDialog datePickerDialog;
     Button dateButton, btnAgree;
 
@@ -35,6 +37,8 @@ public class FieldOfficerRegistration extends AppCompatActivity {
 
         //Creating References for Views
 
+        InstructionNIC = findViewById(R.id.InstructionNIC);
+        InstructionBDate = findViewById(R.id.txtDatePicker);
         EditTxtFName = findViewById(R.id.EditTxtFName);
         EditTxtLName = findViewById(R.id.EditTxtLName);
         EditTxtEmail = findViewById(R.id.EditTxtEmail);
@@ -46,7 +50,7 @@ public class FieldOfficerRegistration extends AppCompatActivity {
 
         //checkbox_correct = findViewById(R.id.checkbox_correct);
 
-        spinner = findViewById(R.id.spinner1);
+        spinner1 = findViewById(R.id.spinner1);
         btnAgree = findViewById(R.id.btnAgree);
 
         initDatePicker();
@@ -59,7 +63,6 @@ public class FieldOfficerRegistration extends AppCompatActivity {
         spinner.setOnItemSelectedListener(this);*/
 
         btnAgree.setOnClickListener(view -> {
-
             //What happens after clicking the button comes here
 
             String firstName = EditTxtFName.getText().toString().trim();
@@ -69,63 +72,52 @@ public class FieldOfficerRegistration extends AppCompatActivity {
             String confirm = EditTxtCnfPassword.getText().toString().trim();
 
             // Calling Methods
-            CheckEmptyValues(firstName, lastName, email, password, confirm);
+
+            //This function will execute when user click on Register Button
+            validateFName(firstName);
+            validateLName(lastName);
             validateEmail(email);
-            validatePassword(password, confirm);
+            validatePassword(password);
+            validateCnfPassword(confirm);
 
         });
 
     }
 
-    private boolean CheckEmptyValues(String firstName, String lastName, String email, String password, String confirm) {
+    private boolean validateFName(String firstName){
+        String noWhiteSpace = "\\A\\w{4,20}\\z";
 
-        if (TextUtils.isEmpty(firstName)) {
+        if(TextUtils.isEmpty(firstName)){
             EditTxtFName.setError("This field is required.");
             return false;
-        }
-
-        if (TextUtils.isEmpty(lastName)) {
-            EditTxtLName.setError("This field is required.");
+        } else if (firstName.length() >= 15) {
+            EditTxtFName.setError("Username too long");
             return false;
-        }
-
-        if (TextUtils.isEmpty(email)) {
-            EditTxtEmail.setError("This field is required.");
+        } else if (!firstName.matches(noWhiteSpace)) {
+            EditTxtFName.setError("White Spaces are not allowed");
             return false;
+        } else {
+            return true;
         }
-
-        if (TextUtils.isEmpty(password)) {
-            EditTxtPassword.setError("This field is required.");
-            return false;
-        }
-
-        if (TextUtils.isEmpty(confirm)) {
-            EditTxtCnfPassword.setError("This field is required.");
-            return false;
-        }
-        return true;
     }
 
-    /*private void CheckEmptyValues(String firstName, String lastName, String email, String password, String confirm) {
-        if(firstName.isEmpty()){
-            Toast.makeText(FieldOfficerRegistration.this, "Please Enter the First Name.", Toast.LENGTH_SHORT).show();
+    private boolean validateLName(String lastName){
+        String noWhiteSpace = "\\A\\w{4,20}\\z";
 
-        } else if (lastName.isEmpty()) {
-            Toast.makeText(FieldOfficerRegistration.this, "Please Enter the Last Name", Toast.LENGTH_SHORT).show();
-
-        } else if (email.isEmpty()) {
-            Toast.makeText(FieldOfficerRegistration.this, "This field can't be empty.", Toast.LENGTH_SHORT).show();
-
-        } else if (password.isEmpty()) {
-            Toast.makeText(FieldOfficerRegistration.this, "This field can't be empty.", Toast.LENGTH_SHORT).show();
-
-        } else if (confirm.isEmpty()) {
-            Toast.makeText(FieldOfficerRegistration.this, "This field can't be empty.", Toast.LENGTH_SHORT).show();
+        if(TextUtils.isEmpty(lastName)){
+            EditTxtLName.setError("This field is required.");
+            return false;
+        } else if (lastName.length() >= 15) {
+            EditTxtLName.setError("Username too long");
+            return false;
+        } else if (!lastName.matches(noWhiteSpace)) {
+            EditTxtLName.setError("White Spaces are not allowed");
+            return false;
+        } else {
+            return true;
         }
-        else{
-            Toast.makeText(this, "Created Account Successfully!", Toast.LENGTH_SHORT).show();
-        }
-    }*/
+    }
+
 
     //Email Validation
     private boolean validateEmail(String email) {
@@ -141,11 +133,61 @@ public class FieldOfficerRegistration extends AppCompatActivity {
         return true;
     }
 
-    private void validatePassword(String password, String confirm) {
-        if(password.equals(confirm)){
-            Toast.makeText(this, "Both Password Matches!", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Password doesn't match!", Toast.LENGTH_SHORT).show();
+    private boolean validatePassword(String password) {
+       /* if(TextUtils.isEmpty(password) | (TextUtils.isEmpty(confirm))){
+            EditTxtPassword.setError("This field is required!");
+            EditTxtCnfPassword.setError("This field is required!");
+        }
+
+        else if{(!(password.equals(confirm))) {
+            EditTxtPassword.setError("Password don't match!");
+            EditTxtCnfPassword.setError("Password don't match!");
+            //Toast.makeText(this, "Password doesn't match!", Toast.LENGTH_SHORT).show();
+        }
+        }
+        */
+
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{4,}" +               //at least 4 characters
+                "$";
+
+        if (TextUtils.isEmpty(password)) {
+            EditTxtPassword.setError("This field is required.");
+            return false;
+        } else if (!password.matches(passwordVal)) {
+            EditTxtPassword.setError("Password is too weak");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean validateCnfPassword(String confirm){
+
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{4,}" +               //at least 4 characters
+                "$";
+
+        if(TextUtils.isEmpty(confirm)){
+            EditTxtCnfPassword.setError("This field is required.");
+            return false;
+        } else if (!confirm.matches(passwordVal)) {
+            EditTxtPassword.setError("Password is too weak");
+            return false;
+        } else {
+             return true;
         }
     }
 

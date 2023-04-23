@@ -25,7 +25,7 @@ public class WelcomePage extends AppCompatActivity {
         signupText = findViewById(R.id.signupText);
 
         signupText.setOnClickListener(view -> {
-            Intent i = new Intent(this, FORegistration.class);
+            Intent i = new Intent(this, FieldOfficerRegistration.class);
             startActivity(i);
         });
 

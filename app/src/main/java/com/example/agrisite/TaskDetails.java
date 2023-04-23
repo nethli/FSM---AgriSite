@@ -1,18 +1,23 @@
 package com.example.agrisite;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class TaskDetails extends AppCompatActivity {
 
-    EditText descriptionBox;
+    EditText descriptionBox, title;
     TextView txtDescription, txtLocation;
     Button btnComplete, btnRemove;
+    Spinner spinner;
+    DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,7 @@ public class TaskDetails extends AppCompatActivity {
 
         //References to the XML
 
+        title = findViewById(R.id.taskTitle);
         descriptionBox = findViewById(R.id.txtdescriptionBox);
 
         descriptionBox.setOnTouchListener(new View.OnTouchListener() {
@@ -35,7 +41,12 @@ public class TaskDetails extends AppCompatActivity {
                 return false;
             }
         });
+
+        //METHODS
+        btnRemove.setOnClickListener(view -> {
+            descriptionBox.setText("");
+            title.setText("");
+        });
     }
-
-
 }
+
