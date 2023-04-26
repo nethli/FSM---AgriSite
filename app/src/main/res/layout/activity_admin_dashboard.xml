@@ -42,7 +42,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtRegisterFO"
-                        android:text="Register FO"
+                        android:text="@string/register_fo_text"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
@@ -55,7 +55,7 @@
                         android:src="@drawable/farmer"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"
-                        android:contentDescription="register_field_officer" />
+                        android:contentDescription="@string/Register_Field_Officer_Image" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtServiceTask"
-                        android:text="Service Tasks"
+                        android:text="@string/service_tasks_text"
                         android:textSize="20sp"
                         android:layout_marginTop="10dp"
                         android:layout_centerHorizontal="true"
@@ -89,7 +89,7 @@
                         android:src="@drawable/service_tasks"
                         android:layout_marginTop="15dp"
                         android:layout_centerHorizontal="true"
-                        android:contentDescription="Create Service Tasks" />
+                        android:contentDescription="@string/Service_Task_Image" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>

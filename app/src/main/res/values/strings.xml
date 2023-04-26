@@ -15,4 +15,17 @@
     <string name="select_your_working_district">select_your_working_district</string>
     <string name="agree_amp_continue"><![CDATA[AGREE & CONTINUE]]></string>
     <string name="email_address">Email Address</string>
+    <string name="task_description">Enter your task description...</string>
+    <string name="Task_Title">Landing Page Design</string>
+    <string name="Starting_Date">JAN 01 2020</string>
+    <string name="End_Date">JAN 01 2020</string>
+    <string name="Enter_Username_Filed">Login</string>
+    <string name="Login_Button">Login</string>
+    <string name="not_yet_registered_sign_up_now">Not yet registered? Sign up now.</string>
+    <string name="password_entering_field">Password</string>
+    <string name="username_entering_field">Username</string>
+    <string name="Service_Task_Image">Create Service Tasks</string>
+    <string name="Register_Field_Officer_Image">register_field_officer</string>
+    <string name="service_tasks_text">Service Tasks</string>
+    <string name="register_fo_text">Register FO</string>
 </resources>

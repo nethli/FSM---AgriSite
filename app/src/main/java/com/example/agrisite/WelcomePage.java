@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.sql.Connection;
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class WelcomePage extends AppCompatActivity {
 
@@ -31,14 +33,18 @@ public class WelcomePage extends AppCompatActivity {
 
         btnLogin.setOnClickListener(view -> {
             if(username.getText().toString().equals("user") && password.getText().toString().equals("1234")){
-                Toast.makeText(WelcomePage.this, "Login Success !", Toast.LENGTH_LONG).show();
+                //Toast.makeText(WelcomePage.this, "Login Success !", Toast.LENGTH_LONG).show();
+                StyleableToast.makeText(this, "Login Success!", Toast.LENGTH_LONG, R.style.SuccessToast).show();
 
                 Intent i = new Intent(this, AdminDashboard.class);
                 startActivity(i);
+
             }else{
-                Toast.makeText(WelcomePage.this, "Login Failed !", Toast.LENGTH_LONG).show();
+                //Toast.makeText(WelcomePage.this, "Login Failed !", Toast.LENGTH_LONG).show();
+                StyleableToast.makeText(this, "Login Failed!", Toast.LENGTH_LONG, R.style.FailToast).show();
 
             }
         });
     }
+
 }

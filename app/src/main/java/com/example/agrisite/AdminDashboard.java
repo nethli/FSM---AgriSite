@@ -5,12 +5,13 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class AdminDashboard extends AppCompatActivity {
 
     ImageView ImgFO, ImgServiceTask, ImageLocation, Image_Calendar, ImgDataAnalytics, ImgAgriProducts;
-
     CardView RegisterCard, ServiceCard, LocationCard, SchedulerCard, AnalyticsCard,ProductsCard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +37,6 @@ public class AdminDashboard extends AppCompatActivity {
             Intent i = new Intent(this, FieldOfficerRegistration.class);
             startActivity(i);
         });
+
     }
 }

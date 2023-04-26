@@ -29,6 +29,7 @@ public class TaskDetails extends AppCompatActivity {
         title = findViewById(R.id.taskTitle);
         descriptionBox = findViewById(R.id.txtdescriptionBox);
 
+        //Task Description Box
         descriptionBox.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

@@ -52,13 +52,14 @@
                     android:id="@+id/taskTitle"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@null"
                     android:autofillHints="No"
+                    android:background="@null"
                     android:drawablePadding="8dp"
-                    android:hint="Landing Page Design"
+                    android:hint="@string/Task_Title"
+                    android:padding="8dp"
                     android:textColorHighlight="@color/light_grey"
-                    android:textColorHint="@color/grey"
-                    android:padding="8dp" />
+                    android:textColorHint="#757575"
+                    tools:ignore="VisualLintTextFieldSize" />
             </LinearLayout>
 
             <LinearLayout
@@ -79,7 +80,7 @@
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/BtnStartDatePicker"
-                    android:text="JAN 01 2020"
+                    android:text="@string/Starting_Date"
                     android:textColor="@color/black"
                     style="?android:spinnerStyle"
                     android:onClick="openDatePicker"/>
@@ -96,10 +97,11 @@
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/BtnEndDatePicker"
-                    android:text="JAN 01 2020"
+                    android:text="@string/End_Date"
                     android:textColor="@color/black"
                     style="?android:spinnerStyle"
-                    android:onClick="openDatePicker"/>
+                    android:onClick="openDatePicker"
+                    tools:ignore="VisualLintBounds" />
 
             </LinearLayout>
 
@@ -114,22 +116,24 @@
 
             <EditText
                 android:id="@+id/txtdescriptionBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:padding="5dp"
                 android:autofillHints="No"
-                android:hint="Enter your task description..."
-                android:textColorHighlight="@color/light_grey"
+                android:background="@drawable/edittextbackground"
+                android:gravity="top|left"
+                android:hint="@string/task_description"
                 android:inputType="textMultiLine"
                 android:lines="8"
-                android:gravity="top|left"
                 android:overScrollMode="always"
-                android:scrollbars="vertical"
+                android:padding="5dp"
                 android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
                 android:scrollHorizontally="false"
-                android:background="@drawable/edittextbackground"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+                android:textColorHighlight="@color/light_grey"
+                android:textColorHint="#757575"
+                tools:ignore="VisualLintTextFieldSize" />
 
             <TextView
                 android:layout_width="match_parent"
