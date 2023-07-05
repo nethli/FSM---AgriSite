@@ -34,7 +34,7 @@ public class AdminDashboard extends AppCompatActivity {
 
         //setOnClickListener on Image
         ImgFO.setOnClickListener(view -> {
-            Intent i = new Intent(this, FieldOfficerRegistration.class);
+            Intent i = new Intent(this, RegisterFO.class);
             startActivity(i);
         });
 

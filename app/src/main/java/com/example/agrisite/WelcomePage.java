@@ -3,15 +3,22 @@ package com.example.agrisite;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import io.github.muddz.styleabletoast.StyleableToast;
 
 public class WelcomePage extends AppCompatActivity {
 
+    Connection connect;
+    String ConnectionResult="";
     EditText username, password;
     TextView signupText;
     Button btnLogin;
@@ -27,11 +34,12 @@ public class WelcomePage extends AppCompatActivity {
         signupText = findViewById(R.id.signupText);
 
         signupText.setOnClickListener(view -> {
-            Intent i = new Intent(this, FieldOfficerRegistration.class);
+            Intent i = new Intent(this, RegisterFO.class);
             startActivity(i);
         });
 
         btnLogin.setOnClickListener(view -> {
+
             if(username.getText().toString().equals("user") && password.getText().toString().equals("1234")){
                 //Toast.makeText(WelcomePage.this, "Login Success !", Toast.LENGTH_LONG).show();
                 StyleableToast.makeText(this, "Login Success!", Toast.LENGTH_LONG, R.style.SuccessToast).show();
@@ -42,9 +50,8 @@ public class WelcomePage extends AppCompatActivity {
             }else{
                 //Toast.makeText(WelcomePage.this, "Login Failed !", Toast.LENGTH_LONG).show();
                 StyleableToast.makeText(this, "Login Failed!", Toast.LENGTH_LONG, R.style.FailToast).show();
-
             }
         });
     }
-
 }
+
